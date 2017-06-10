@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170609125501) do
+ActiveRecord::Schema.define(version: 20170609173928) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "c_name",      limit: 255,   null: false
@@ -23,6 +23,38 @@ ActiveRecord::Schema.define(version: 20170609125501) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  create_table "company_branches", force: :cascade do |t|
+    t.integer  "company_id", limit: 4
+    t.string   "branch",     limit: 255, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "company_branches", ["company_id"], name: "fk_rails_9e51ae5a43", using: :btree
+
+  create_table "company_ctcs", force: :cascade do |t|
+    t.integer  "company_id", limit: 4
+    t.string   "position",   limit: 255, null: false
+    t.float    "ctc_lakhs",  limit: 24,  null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "company_ctcs", ["company_id"], name: "fk_rails_171acc10b7", using: :btree
+
+  create_table "company_drives", force: :cascade do |t|
+    t.integer  "company_id",         limit: 4
+    t.string   "c_name",             limit: 255
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "no_placed_students", limit: 4
+    t.text     "feedback",           limit: 65535
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  add_index "company_drives", ["company_id"], name: "fk_rails_91870e76ba", using: :btree
 
   create_table "student_details", force: :cascade do |t|
     t.string   "s_name",        limit: 255, null: false
@@ -41,7 +73,6 @@ ActiveRecord::Schema.define(version: 20170609125501) do
     t.float    "spi_5",         limit: 24,  null: false
     t.float    "spi_6",         limit: 24,  null: false
     t.float    "spi_7",         limit: 24
-    t.float    "cpi_6",         limit: 24,  null: false
     t.float    "cpi_7",         limit: 24
     t.float    "10_percent",    limit: 24,  null: false
     t.float    "12_percent",    limit: 24,  null: false
@@ -49,4 +80,7 @@ ActiveRecord::Schema.define(version: 20170609125501) do
     t.datetime "updated_at",                null: false
   end
 
+  add_foreign_key "company_branches", "companies", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "company_ctcs", "companies", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "company_drives", "companies", on_update: :cascade, on_delete: :cascade
 end

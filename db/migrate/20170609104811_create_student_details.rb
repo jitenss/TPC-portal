@@ -17,7 +17,6 @@ class CreateStudentDetails < ActiveRecord::Migration
     	t.float "spi_5", :null=> false, :precision=> 4, :scale=> 2
     	t.float "spi_6", :null=> false, :precision=> 4, :scale=> 2
     	t.float "spi_7", :precision=> 4, :scale=> 2
-    	t.float "cpi_6", :null=> false, :precision=> 4, :scale=> 2
     	t.float "cpi_7", :precision=> 4, :scale=> 2
     	t.float "10_percent", :null=> false, :precision=> 4, :scale=> 2
     	t.float "12_percent", :null=> false, :precision=> 4, :scale=> 2
