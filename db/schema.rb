@@ -13,4 +13,11 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
+  create_table "student_registers", force: :cascade do |t|
+    t.integer  "student_details_id", limit: 4
+    t.integer  "companies_id",       limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
 end
