@@ -3,7 +3,7 @@ class CreateCompanyCtcs < ActiveRecord::Migration
     create_table :company_ctcs do |t|
       t.references :company
       t.string "position",:null=>false
-      t.float "ctc_lakhs",:null=>false
+      t.float "ctc",:null=>false
       t.timestamps null: false
 
     end
