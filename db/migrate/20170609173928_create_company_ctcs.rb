@@ -7,6 +7,6 @@ class CreateCompanyCtcs < ActiveRecord::Migration
       t.timestamps null: false
 
     end
-add_foreign_key :company_ctcs , :companies,on_delete: :cascade,on_update: :cascade
+	add_foreign_key :company_ctcs , :companies,on_delete: :cascade,on_update: :cascade
   end
 end

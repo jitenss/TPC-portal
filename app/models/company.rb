@@ -8,6 +8,6 @@ class Company < ActiveRecord::Base
 	validates :c_name, :presence=>true
 	validates :cpiCriteria, :presence=>true,:numericality=> (less_than_or_equal_to: 10.00)
 	validates :category, :presence=>true,:inclusion_of=>{:in=>("Dream","Regular","Core")}
-	validates :backlogs, :presence=>true,:numericality=>true
+	validates :backlogs, :presence=>true,:numericality=>(:only_integer)
 
 end
