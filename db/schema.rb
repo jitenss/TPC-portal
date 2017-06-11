@@ -11,42 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170609125501) do
+ActiveRecord::Schema.define(version: 0) do
 
-  create_table "companies", force: :cascade do |t|
-    t.string   "c_name",      limit: 255,   null: false
-    t.float    "cpiCriteria", limit: 24,    null: false
-    t.string   "category",    limit: 255,   null: false
-    t.text     "info",        limit: 65535
-    t.string   "backlogs",    limit: 255,   null: false
-    t.text     "skills_set",  limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-  end
-
-  create_table "student_details", force: :cascade do |t|
-    t.string   "s_name",        limit: 255, null: false
-    t.integer  "batch",         limit: 4,   null: false
-    t.string   "roll_no",       limit: 255, null: false
-    t.string   "branch",        limit: 255, null: false
-    t.string   "gender",        limit: 255, null: false
-    t.date     "date_of_birth",             null: false
-    t.integer  "contact_no_1",  limit: 4,   null: false
-    t.integer  "contact_no_2",  limit: 4
-    t.string   "email",         limit: 255, null: false
-    t.float    "spi_1",         limit: 24,  null: false
-    t.float    "spi_2",         limit: 24,  null: false
-    t.float    "spi_3",         limit: 24,  null: false
-    t.float    "spi_4",         limit: 24,  null: false
-    t.float    "spi_5",         limit: 24,  null: false
-    t.float    "spi_6",         limit: 24,  null: false
-    t.float    "spi_7",         limit: 24
-    t.float    "cpi_6",         limit: 24,  null: false
-    t.float    "cpi_7",         limit: 24
-    t.float    "10_percent",    limit: 24,  null: false
-    t.float    "12_percent",    limit: 24,  null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+  create_table "student_registers", force: :cascade do |t|
+    t.integer  "student_details_id", limit: 4
+    t.integer  "companies_id",       limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
 end

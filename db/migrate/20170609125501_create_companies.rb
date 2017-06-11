@@ -4,8 +4,9 @@ class CreateCompanies < ActiveRecord::Migration
       t.string "c_name", :null=> false
       t.float "cpiCriteria", :null=> false, :precision=> 4, :scale=> 2
       t.string "category", :null=> false
+      t.integer "batch"
       t.text "info"
-      t.string "backlogs",:null=> false
+      t.integer "backlogs",:null=> false
       t.text "skills_set"
       t.timestamps null: false
     end
