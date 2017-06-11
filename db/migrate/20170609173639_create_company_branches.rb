@@ -1,7 +1,7 @@
 class CreateCompanyBranches < ActiveRecord::Migration
   def change
     create_table :company_branches do |t|
-    t.references :company
+      t.references :company
       t.string "branch",:null=>false
       t.timestamps null: false
     end
