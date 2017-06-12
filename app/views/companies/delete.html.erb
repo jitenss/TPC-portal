@@ -1,0 +1,14 @@
+<%= link_to("<< Back to List", {:action => 'index'}) %>
+
+  <h2>Delete Company</h2>
+
+  <%= form_for(:company, :url => {:action => 'destroy', :id => @company.id}) do |f| %>
+
+    <p>Are you sure you want to permanently delete this Company?</p>
+
+    <p><%= @company.cin %></p>
+    <p><%= @company.c_name %></p>
+
+      <%= submit_tag("Delete Subject") %>
+
+  <% end %>

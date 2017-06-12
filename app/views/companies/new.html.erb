@@ -1,0 +1,14 @@
+<%= link_to("<< Back to List", {:action => 'index'}) %>
+
+
+  <h2>Create Company</h2>
+
+  <%= form_for(:company, :url => {:action => 'create'}) do |f| %>
+
+    <%= render(:partial => "formCompany", :locals => {:f => f}) %>
+
+
+      <%= submit_tag("Create Company") %>
+
+
+  <% end %>

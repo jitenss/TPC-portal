@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20170610015612) do
     t.datetime "updated_at",             null: false
   end
 
-  add_index "company_branches", ["company_id"], name: "fk_rails_9e51ae5a43", using: :btree
+  add_index "company_branches", ["company_id"], name: "index_company_branches_on_company_id", using: :btree
 
   create_table "company_ctcs", force: :cascade do |t|
     t.integer  "company_id", limit: 4
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20170610015612) do
     t.datetime "updated_at",             null: false
   end
 
-  add_index "company_ctcs", ["company_id"], name: "fk_rails_171acc10b7", using: :btree
+  add_index "company_ctcs", ["company_id"], name: "index_company_ctcs_on_company_id", using: :btree
 
   create_table "company_drives", force: :cascade do |t|
     t.integer  "company_id",         limit: 4
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20170610015612) do
     t.datetime "updated_at",                       null: false
   end
 
-  add_index "company_drives", ["company_id"], name: "fk_rails_91870e76ba", using: :btree
+  add_index "company_drives", ["company_id"], name: "index_company_drives_on_company_id", using: :btree
 
   create_table "student_details", force: :cascade do |t|
     t.string   "s_name",        limit: 255, null: false

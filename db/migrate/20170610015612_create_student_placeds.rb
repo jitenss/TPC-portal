@@ -14,8 +14,8 @@ class CreateStudentPlaceds < ActiveRecord::Migration
     add_index("student_placeds","company_id")
   end
   def down
-    #remove_foreign_key :student_placeds, :student_registers
-    #remove_foreign_key :student_placeds, :companies
+    remove_foreign_key :student_placeds, :student_registers
+    remove_foreign_key :student_placeds, :companies
     remove_index :student_placeds, :student_register_id
     remove_index :student_placeds, :company_id
     drop_table :student_placeds
