@@ -5,10 +5,14 @@ class CreateStudentRegisters < ActiveRecord::Migration
     	t.references :company
       	t.timestamps null: false
     end
+
     add_foreign_key :student_registers , :student_details,on_delete: :cascade,on_update: :cascade
     add_foreign_key :student_registers , :companies,on_delete: :cascade,on_update: :cascade
     add_index("student_registers","student_detail_id")
     add_index("student_registers","company_id")
+
+    
+
   end
   def down
     remove_foreign_key :student_registers, :student_details

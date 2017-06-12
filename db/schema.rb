@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20170610015612) do
 
+
   create_table "companies", force: :cascade do |t|
     t.string   "cin",         limit: 255,   null: false
     t.string   "c_name",      limit: 255,   null: false
@@ -113,4 +114,5 @@ ActiveRecord::Schema.define(version: 20170610015612) do
   add_foreign_key "student_placeds", "student_registers", on_update: :cascade, on_delete: :cascade
   add_foreign_key "student_registers", "companies", on_update: :cascade, on_delete: :cascade
   add_foreign_key "student_registers", "student_details", on_update: :cascade, on_delete: :cascade
+
 end
