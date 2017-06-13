@@ -1,0 +1,33 @@
+  <h2>Company</h2>
+
+  <%= link_to("Add new company", {:action => 'new'}) %>
+
+  <%= pluralize(@company.size, 'company') %> found</div>
+  <table>
+    <tr>
+      <th>CIN</th>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Batch</th>
+      <th>CPI-Criteria</th>
+      <th>Backlogs</th>
+      <th>Skills Set</th>
+      <th>Actions</th>
+    </tr>
+    <% @company.each do |t| %>
+    <tr>
+      <td><%= t.cin %></td>
+      <td><%= t.c_name %></td>
+      <td><%= t.category %></td>
+      <td><%= t.batch%></td>
+      <td><%= t.cpiCriteria %></td>
+      <td><%= t.backlogs%></td>
+      <td><%= t.skills_set%></td>
+      <td>
+        <%= link_to("Show", {:action => 'show', :id => t.id}) %>
+        <%= link_to("Edit", {:action => 'edit', :id => t.id}) %>
+        <%= link_to("Delete", {:action => 'delete', :id => t.id}) %>
+      </td>
+    </tr>
+    <% end %>
+  </table>

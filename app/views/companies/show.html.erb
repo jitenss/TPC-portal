@@ -1,0 +1,45 @@
+<%= link_to("<< Back to List", {:action => 'index'}) %>
+
+
+  <h2>Show Company</h2>
+
+  <table>
+    <tr>
+      <th>CIN</th>
+      <td><%= @company.cin %></td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <td><%= @company.c_name %></td>
+    </tr>
+    <tr>
+      <th>Category</th>
+      <td><%= @company.category %></td>
+    </tr>
+    <tr>
+      <th>CPI Criteria</th>
+      <td><%= @company.cpiCriteria %></td>
+    </tr>
+    <tr>
+      <th>Backlogs</th>
+      <td><%= @company.backlogs %></td>
+    </tr>
+    <tr>
+      <th>Skills Set</th>
+      <td><%= @company.skills_set %></td>
+    </tr>
+    <tr>
+      <th>Company Info</th>
+      <td><%= @company.info %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @company.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @company.updated_at %></td>
+    </tr>
+  </table>
+
+</div>

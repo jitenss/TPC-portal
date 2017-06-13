@@ -1,0 +1,14 @@
+<%= link_to("<< Back to List", {:action => 'index'}) %>
+
+
+  <h2>Update Company</h2>
+
+  <%= form_for(:company, :url => {:action => 'update', :id => @company.id}) do |f| %>
+
+    <%= render(:partial => "formCompany", :locals => {:f => f}) %>
+
+
+      <%= submit_tag("Update Company") %>
+
+
+  <% end %>
