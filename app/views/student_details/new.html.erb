@@ -1,5 +1,5 @@
 <div>
-	
+	<%= errors(@student)%>
 		<%= form_for(:student_form, :url=>{:action=>'create'}) do |f| %>
 			<table>
 				<tr>
@@ -33,11 +33,6 @@
 					<td><%= f.date_select(:date_of_birth,:start_year=>1993,:end_year=>2000,:order=>[:day,:month,:year])%></td>
 				</tr> 
 				
-				<tr>
-					<th><%= f.label(:contact_no_1,"Contact Number")%></th>
-					<td><%= f.text_field(:contact_no_1)%></td>
-				</tr>
-
 				<tr>
 					<th><%= f.label(:contact_no_1,"Contact Number")%></th>
 					<td><%= f.text_field(:contact_no_1)%></td>
@@ -108,6 +103,7 @@
 					<td><%= f.text_field(:percent_12)%></td>
 				</tr>
 			</table>
+			<%= submit_tag("Submit") %>
 		<%end%>
 	
 </div>

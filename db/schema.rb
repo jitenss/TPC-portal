@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20170610015612) do
 
-
   create_table "companies", force: :cascade do |t|
     t.string   "cin",         limit: 255,   null: false
     t.string   "c_name",      limit: 255,   null: false
@@ -77,9 +76,10 @@ ActiveRecord::Schema.define(version: 20170610015612) do
     t.float    "spi_5",         limit: 24,  null: false
     t.float    "spi_6",         limit: 24,  null: false
     t.float    "spi_7",         limit: 24
+    t.float    "cpi_6",         limit: 24,  null: false
     t.float    "cpi_7",         limit: 24
-    t.float    "10_percent",    limit: 24,  null: false
-    t.float    "12_percent",    limit: 24,  null: false
+    t.float    "percent_10",    limit: 24,  null: false
+    t.float    "percent_12",    limit: 24,  null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
@@ -114,5 +114,4 @@ ActiveRecord::Schema.define(version: 20170610015612) do
   add_foreign_key "student_placeds", "student_registers", on_update: :cascade, on_delete: :cascade
   add_foreign_key "student_registers", "companies", on_update: :cascade, on_delete: :cascade
   add_foreign_key "student_registers", "student_details", on_update: :cascade, on_delete: :cascade
-
 end

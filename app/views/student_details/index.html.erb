@@ -1,0 +1,62 @@
+<div>
+
+
+	<h3>Students</h3>
+
+	<%= link_to("Add new Student",{:action=>'new'}) %>
+	<%= link_to("Show",{:action=>'enter_no'})%>
+	<%= link_to("Edit",{:action=>'edit'}) %>
+	<%= link_to("Delete",{:action=>'delete'}) %>
+
+	<div><%= pluralize(@students.size,'student')%> registered.</div>
+
+	<table>
+		<tr>
+			<td><b>Sr.No.</b></td>
+			<td><b>Name</b></td>
+			<td><b>Roll no.</b></td>
+			<td><b>Branch</b></td>
+			<td><b>Gender</b></td>
+			<td><b>Date Of Birth</b></td>
+			<td><b>Contact No.</b></td>
+			<td><b>Contact No.</b></td>
+			<td><b>E-mail</b></td>
+			<td><b>SPI-1</b></td>
+			<td><b>SPI-2</b></td>
+			<td><b>SPI-3</b></td>
+			<td><b>SPI-4</b></td>
+			<td><b>SPI-5</b></td>
+			<td><b>SPI-6</b></td>
+			<td><b>SPI-7</b></td>
+			<td><b>CPI-6</b></td>
+			<td><b>CPI-7</b></td>
+			<td><b>10th Percentage</b></td>
+			<td><b>12th Percentage</b></td>
+		</tr>
+
+		<% @students.each do |student| %>
+			<tr>
+				<td><%=student.id%></td>
+				<td><%=student.s_name%></td>
+				<td><%=student.roll_no%></td>
+				<td><%=student.branch%></td>
+				<td><%=student.gender%></td>
+				<td><%=student.date_of_birth%></td>
+				<td><%=student.contact_no_1%></td>
+				<td><%=student.contact_no_2%></td>
+				<td><%=student.email%></td>
+				<td><%=student.spi_1%></td>
+				<td><%=student.spi_2%></td>
+				<td><%=student.spi_3%></td>
+				<td><%=student.spi_4%></td>
+				<td><%=student.spi_5%></td>
+				<td><%=student.spi_6%></td>
+				<td><%=student.spi_7%></td>
+				<td><%=student.cpi_6%></td>
+				<td><%=student.cpi_7%></td>
+				<td><%=student.percent_10%></td>
+				<td><%=student.percent_12%></td>
+			</tr>
+		<%end%>
+	</table>
+</div>
