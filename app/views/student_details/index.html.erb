@@ -4,9 +4,9 @@
 	<h3>Students</h3>
 
 	<%= link_to("Add new Student",{:action=>'new'}) %>
-	<%= link_to("Show",{:action=>'enter_no'})%>
-	<%= link_to("Edit",{:action=>'edit'}) %>
-	<%= link_to("Delete",{:action=>'delete'}) %>
+	<%= link_to("Show",{:action=>'enter_no_show'})%>
+	<%= link_to("Edit",{:action=>'enter_no_edit'}) %>
+	<%= link_to("Delete",{:action=>'enter_no_delete'}) %>
 
 	<div><%= pluralize(@students.size,'student')%> registered.</div>
 
@@ -59,4 +59,5 @@
 			</tr>
 		<%end%>
 	</table>
+	
 </div>

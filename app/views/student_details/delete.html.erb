@@ -1,0 +1,6 @@
+<div>
+	<%= form_for(:student_form,:url=>{:action=>'destroy',:id=>'@student.id'}) do |f|%>
+		<p>Are you sure you want to remove the student from the list.</p>
+		<%= submit_tag("Delete")%>
+	<%end%>
+</div>

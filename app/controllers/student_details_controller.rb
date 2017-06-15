@@ -10,10 +10,6 @@ class StudentDetailsController < ApplicationController
 		@student = StudentDetail.find(s_params)
 	end
 
-	def enter_no
-		#@student = StudentDetail.find(s_params)
-	end
-
 	def new
 		@student = StudentDetail.new
 	end
@@ -50,6 +46,16 @@ class StudentDetailsController < ApplicationController
 	def destroy
 		@student = StudentDetail.find(s_params).destroy
 		redirect_to(:action=>'index')
+	end
+
+	def enter_no_show
+		#@student = StudentDetail.find(s_params)
+	end
+
+	def enter_no_edit
+	end
+
+	def enter_no_delete
 	end
 
 	private

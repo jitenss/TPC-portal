@@ -66,8 +66,8 @@ ActiveRecord::Schema.define(version: 20170610015612) do
     t.string   "branch",        limit: 255, null: false
     t.string   "gender",        limit: 255, null: false
     t.date     "date_of_birth",             null: false
-    t.integer  "contact_no_1",  limit: 4,   null: false
-    t.integer  "contact_no_2",  limit: 4
+    t.string   "contact_no_1",  limit: 255, null: false
+    t.string   "contact_no_2",  limit: 255
     t.string   "email",         limit: 255, null: false
     t.float    "spi_1",         limit: 24,  null: false
     t.float    "spi_2",         limit: 24,  null: false
