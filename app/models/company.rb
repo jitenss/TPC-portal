@@ -14,4 +14,7 @@ class Company < ActiveRecord::Base
 
 
 	scope :sorted, lambda { order("companies.c_name ASC") }
+	 accepts_nested_attributes_for :company_branches,
+	 																:allow_destroy=> true
+
 end

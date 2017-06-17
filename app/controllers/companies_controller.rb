@@ -9,6 +9,7 @@ class CompaniesController < ApplicationController
 
   def new
     @company=Company.new
+    @company_branches=@company.company_branches.new
   end
 
   def edit
@@ -50,6 +51,6 @@ def update
 end
 
 private def company_params()
-  params.require(:company).permit(:cin,:c_name, :cpiCriteria,:category,:batch,:backlogs,:skills_set,:info)
+  params.require(:company).permit(:cin,:c_name, :cpiCriteria,:category,:batch,:backlogs,:skills_set,:info,company_branches_attributes: CompanyBranch.attribute_names.map(&:to_sym).push(:_destroy))
 end
 end
