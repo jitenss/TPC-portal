@@ -60,28 +60,29 @@ ActiveRecord::Schema.define(version: 20170610015612) do
   add_index "company_drives", ["company_id"], name: "index_company_drives_on_company_id", using: :btree
 
   create_table "student_details", force: :cascade do |t|
-    t.string   "s_name",        limit: 255, null: false
-    t.integer  "batch",         limit: 4,   null: false
-    t.string   "roll_no",       limit: 255, null: false
-    t.string   "branch",        limit: 255, null: false
-    t.string   "gender",        limit: 255, null: false
-    t.date     "date_of_birth",             null: false
-    t.integer  "contact_no_1",  limit: 4,   null: false
-    t.integer  "contact_no_2",  limit: 4
-    t.string   "email",         limit: 255, null: false
-    t.float    "spi_1",         limit: 24,  null: false
-    t.float    "spi_2",         limit: 24,  null: false
-    t.float    "spi_3",         limit: 24,  null: false
-    t.float    "spi_4",         limit: 24,  null: false
-    t.float    "spi_5",         limit: 24,  null: false
-    t.float    "spi_6",         limit: 24,  null: false
-    t.float    "spi_7",         limit: 24
-    t.float    "cpi_6",         limit: 24,  null: false
-    t.float    "cpi_7",         limit: 24
-    t.float    "percent_10",    limit: 24,  null: false
-    t.float    "percent_12",    limit: 24,  null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "s_name",          limit: 255, null: false
+    t.integer  "batch",           limit: 4,   null: false
+    t.string   "roll_no",         limit: 255, null: false
+    t.string   "password_digest", limit: 255
+    t.string   "branch",          limit: 255, null: false
+    t.string   "gender",          limit: 255, null: false
+    t.date     "date_of_birth",               null: false
+    t.string   "contact_no_1",    limit: 255, null: false
+    t.string   "contact_no_2",    limit: 255
+    t.string   "email",           limit: 255, null: false
+    t.float    "spi_1",           limit: 24,  null: false
+    t.float    "spi_2",           limit: 24,  null: false
+    t.float    "spi_3",           limit: 24,  null: false
+    t.float    "spi_4",           limit: 24,  null: false
+    t.float    "spi_5",           limit: 24,  null: false
+    t.float    "spi_6",           limit: 24,  null: false
+    t.float    "spi_7",           limit: 24
+    t.float    "cpi_6",           limit: 24,  null: false
+    t.float    "cpi_7",           limit: 24
+    t.float    "percent_10",      limit: 24,  null: false
+    t.float    "percent_12",      limit: 24,  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "student_placeds", force: :cascade do |t|

@@ -1,0 +1,8 @@
+<div>
+	<%= form_for(:student_form,:url=>{:action=>'update',:id=>@student.id}) do |f|%>
+		<table>
+			<%= render(:partial=>'formStudent',:locals=>{:f=>f})%>
+		</table>
+		<%=submit_tag("Edit")%>
+	<%end%>
+</div>

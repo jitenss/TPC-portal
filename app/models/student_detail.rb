@@ -1,16 +1,19 @@
 class StudentDetail < ActiveRecord::Base
+
+	has_secure_password
+
 	has_many :student_registers
 
 	EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-
+ 
 	validates :s_name, :presence=>true
 	validates :batch, :presence=>true, :numericality=>{:only_integer=>true} 
 	validates :roll_no, :presence=>true, :uniqueness=>true
 	validates :branch, :presence=>true,:inclusion=>{in: %w(CSE ECE CCE MME ME)}
 	validates :gender, :presence=>true, :inclusion=>{in: %w(Male Female)}
 	validates :date_of_birth, :presence=>true
-	validates :contact_no_1, :presence=>true, :numericality=>{:only_integer=>true}, :length=>{:is=>10}
-	validates :contact_no_2, :numericality=>{:only_integer=>true}, :length=>{:is=>10}
+	validates :contact_no_1, :presence=>true, :length=>{:is=>10}
+	validates :contact_no_2, :length=>{:is=>10}
 	validates :email, :presence=>true, :format=>EMAIL_REGEX
 	validates :spi_1, :presence=>true, :numericality=>{less_than_or_equal_to: 10.00}
 	validates :spi_2, :presence=>true, :numericality=>{less_than_or_equal_to: 10.00}
