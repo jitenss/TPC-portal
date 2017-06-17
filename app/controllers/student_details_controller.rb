@@ -1,7 +1,7 @@
 class StudentDetailsController < ApplicationController
 
 	#layout('index')
-	before_action :confirm_logged_in, :except=>[:login,:attempt_login,:logout]
+	before_action :confirm_logged_in, :except=>[:login,:attempt_login,:logout,:new]
 	
 
 	def index
@@ -21,7 +21,7 @@ class StudentDetailsController < ApplicationController
 
 		if @student.save
 			flash[:notice] ="created"
-			redirect_to(:action=>'index')
+			redirect_to(:action=>'login')
 		else
 			render('new')
 		end
@@ -83,6 +83,8 @@ class StudentDetailsController < ApplicationController
 	end
 
 	def logout
+		session[:roll_no] = nil
+		redirect_to(:action=>'login')
 	end
 
 	private
