@@ -2,14 +2,14 @@ class StudentDetailsController < ApplicationController
 
 	#layout('index')
 	before_action :confirm_logged_in, :except=>[:login,:attempt_login,:logout,:new]
-	
+
 
 	def index
 		@students = StudentDetail.all
 	end
 
 	def show
-		@student = StudentDetail.find(params[:id])
+		@student = StudentDetail.where(rollNo()).first
 	end
 
 	def new
@@ -28,8 +28,8 @@ class StudentDetailsController < ApplicationController
 	end
 
 	def edit
-		@student = StudentDetail.find(params[:id])
-	end
+		@student = StudentDetail.where(rollNo()).first
+end
 
 	def update
 		@student = StudentDetail.find(params[:id])
@@ -42,7 +42,7 @@ class StudentDetailsController < ApplicationController
 	end
 
 	def delete
-		@student = StudentDetail.find(params[:id])
+		@student = StudentDetail.where(rollNo()).first
 	end
 
 	def destroy
@@ -52,7 +52,7 @@ class StudentDetailsController < ApplicationController
 	end
 
 	def enter_no_show
-		#@student = StudentDetail.find(s_params)
+		@stud=StudentDetail.new
 	end
 
 	def enter_no_edit
@@ -90,6 +90,10 @@ class StudentDetailsController < ApplicationController
 	private
 	def s_params
 		params.require(:student_form).permit(:id,:s_name,:batch,:roll_no,:branch,:gender,:date_of_birth,:contact_no_1,:contact_no_2,:email,:spi_1,:spi_2,:spi_3,:spi_4,:spi_5,:spi_6,:spi_7,:cpi_6,:cpi_7,:percent_10,:percent_12,:password)
+	end
+
+	def rollNo
+		params.require(:stud).permit(:roll_no)
 	end
 
 	def confirm_logged_in

@@ -1,7 +1,7 @@
 <div>
-	<%= form_tag(:action=>'delete') do %>
-		<h6>Enter the id of the student</h6>
-		<p><%= text_field_tag(:id)%></p>
+	<%= form_for(:stud, :url=>{:action=>'delete'}) do |f| %>
+		<h6>Enter the roll number of the student</h6>
+		<p><%= f.text_field(:roll_no)%></p>
 		<p><%= submit_tag("Submit")%></p>
 	<%end%>
 </div>
