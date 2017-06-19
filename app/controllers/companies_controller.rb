@@ -20,6 +20,33 @@ class CompaniesController < ApplicationController
     @company=Company.find(params[:id])
   end
 
+  def show_filter
+    @company = Company.where(name()).first
+    render("show")
+  end
+
+  def edit_filter
+    @company = Company.where(name()).first
+    render("edit")
+  end
+
+  def delete_filter
+    @company = Company.where(name()).first
+    render("delete")
+  end
+
+  def enter_no_show
+		@company=Company.new
+	end
+
+	def enter_no_edit
+    @company=Company.new
+	end
+
+	def enter_no_delete
+    @company=Company.new
+	end
+
 
 def destroy
   company=Company.find(params[:id]).destroy
@@ -52,5 +79,9 @@ end
 
 private def company_params()
   params.require(:company).permit(:cin,:c_name, :cpiCriteria,:category,:batch,:backlogs,:skills_set,:info,company_branches_attributes: CompanyBranch.attribute_names.map(&:to_sym).push(:_destroy))
+end
+
+private def name
+  params.require(:company).permit(:c_name)
 end
 end

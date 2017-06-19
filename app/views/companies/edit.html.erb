@@ -3,7 +3,7 @@
 
   <h2>Update Company</h2>
 
-  <%= form_for(:company, :url => {:action => 'update', :id => @company.id}) do |f| %>
+  <%= form_for(@company, :url => {:action => 'update', :id => @company.id}) do |f| %>
 
     <%= render(:partial => "formCompany", :locals => {:f => f}) %>
 

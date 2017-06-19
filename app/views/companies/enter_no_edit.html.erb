@@ -1,0 +1,7 @@
+<div>
+	<%= form_for(:company, :url=>{:action=>'edit_filter'}) do |f| %>
+		<h6>Enter the name of the Company</h6>
+		<p><%= f.text_field(:c_name)%></p>
+		<p><%= submit_tag("Submit")%></p>
+	<%end%>
+</div>

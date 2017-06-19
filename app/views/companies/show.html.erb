@@ -2,7 +2,6 @@
 
 
   <h2>Show Company</h2>
-
   <table>
     <tr>
       <th>CIN</th>
@@ -39,6 +38,12 @@
     <tr>
       <th>Updated</th>
       <td><%= @company.updated_at %></td>
+    </tr>
+    <tr>
+      <th>Branch</th>
+      <% @company.company_branches.each do|c|%>s
+      <td><%= c.branch %></td>
+      <% end %>
     </tr>
   </table>
 
