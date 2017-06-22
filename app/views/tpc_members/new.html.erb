@@ -1,0 +1,17 @@
+<%= link_to("<< Back to List", {:action => 'index'}) %>
+
+
+  <h2>Create new TPC-Member</h2>
+
+  <%= form_for(:tpc, :url => {:action => 'create'}) do |f| %>
+
+    <%= render(:partial => "formTpc", :locals => {:f => f}) %>
+
+
+
+      <%= submit_tag("Create Member") %>
+
+
+
+
+  <% end %>

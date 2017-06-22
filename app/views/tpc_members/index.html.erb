@@ -1,0 +1,27 @@
+<h2>TPC-Members</h2>
+
+<%= link_to("Add new member", {:action => 'new'}) %>
+
+<%= pluralize(@tpc.size, 'Member') %> found</div>
+<table>
+  <tr>
+    <th>Roll NO</th>
+    <th>Name</th>
+    <th>Team</th>
+    <th>Batch</th>
+    <th>date_of_joining</th>
+  </tr>
+  <% @tpc.each do |t| %>
+  <tr>
+    <td><%= t.t_roll_no %></td>
+    <td><%= t.t_name %></td>
+    <td><%= t.team %></td>
+    <td><%= t.t_batch %></td>
+    <td><%= t.date_of_joining %></td>
+    <td>
+      <%= link_to("Edit", {:action => 'edit', :id => t.id}) %>
+      <%= link_to("Delete", {:action => 'delete', :id => t.id}) %>
+    </td>
+  </tr>
+  <% end %>
+</table>

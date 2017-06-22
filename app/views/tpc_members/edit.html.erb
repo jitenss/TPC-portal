@@ -1,0 +1,14 @@
+<%= link_to("<< Back to List", {:action => 'index'}) %>
+
+
+  <h2>Update Member</h2>
+
+  <%= form_for(@tpc, :url => {:action => 'update', :id => @tpc.id}) do |f| %>
+
+    <%= render(:partial => "formTpc", :locals => {:f => f}) %>
+
+
+      <%= submit_tag("Update Member") %>
+
+
+  <% end %>

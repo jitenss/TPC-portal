@@ -1,0 +1,23 @@
+<table>
+
+  <tr>
+    <th> <%=f.label(:t_roll_no,'Roll No')%></th>
+    <td><%= f.text_field(:t_roll_no) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:t_name,'Name')%></th>
+    <td><%= f.text_field(:t_name) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:t_batch,'Batch')%></th>
+    <td><%= f.text_field(:t_batch) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:team,'Team')%></th>
+    <td><%= f.select(:team,['Pitching and PR','Technical','Database','Coordinator','Sub-Coordinator']) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:date_of_joining,'Joining Date')%></th>
+    <td><%= f.date_select(:date_of_joining) %></td>
+  </tr>
+</table>

@@ -1,0 +1,14 @@
+<%= link_to("<< Back to List", {:action => 'index'}) %>
+
+  <h2>Delete Member</h2>
+
+  <%= form_for(:tpc, :url => {:action => 'destroy', :id => @tpc.id}) do |f| %>
+
+    <p>Are you sure you want to permanently delete this Member?</p>
+
+    <p><%= @tpc.t_roll_no %></p>
+    <p><%= @tpc.t_name %></p>
+
+      <%= submit_tag("Delete Member") %>
+
+  <% end %>
