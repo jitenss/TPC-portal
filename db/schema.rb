@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20170622095659) do
     t.integer  "company_id",         limit: 4
     t.date     "start_date",                       null: false
     t.date     "end_date"
-    t.integer  "no_placed_students", limit: 4,     null: false
+    t.integer  "no_placed_students", limit: 4
     t.text     "feedback",           limit: 65535
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false

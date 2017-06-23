@@ -2,6 +2,14 @@ Rails.application.routes.draw do
 
 
   
+  get 'company_drives/index'
+
+  get 'company_drives/new'
+
+  get 'company_drives/show'
+
+  get 'company_drives/delete'
+
   root "companies#index"
  match ':controller(/:action(/:id))', :via=>[:get,:post]
 

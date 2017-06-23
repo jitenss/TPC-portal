@@ -4,7 +4,7 @@ class CreateCompanyDrives < ActiveRecord::Migration
       t.references :company
       t.date "start_date", null: false
       t.date "end_date"
-      t.integer "no_placed_students", null: false
+      t.integer "no_placed_students"
       t.text "feedback"
       t.timestamps null: false
     end

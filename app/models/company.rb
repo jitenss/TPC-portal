@@ -9,7 +9,7 @@ class Company < ActiveRecord::Base
 
 	validates :c_name, :presence=>true
 	validates :cpiCriteria, :presence=>true,:numericality=> {:less_than_or_equal_to => 10.00}
-	validates :category, :presence=>true,:inclusion => {:in => %w(Dream Regular Core)}
+	validates :category, :presence=>true,:inclusion => {:in => %w(Dream Regular Core Super_Dream)}
 	validates :backlogs, :presence=>true,:numericality=>{:only_integer=>true}
 
 
