@@ -77,8 +77,17 @@ def update
   end
 end
 
+def visiting
+  @company_visiting = Company.all.where(:visiting=>true)
+end
+
+def s_registered
+  @company = Company.find(params[:id])
+  @student_register = StudentRegister.where(@company.id)
+end
+
 private def company_params()
-  params.require(:company).permit(:cin,:c_name, :cpiCriteria,:category,:batch,:backlogs,:skills_set,:info,company_branches_attributes: CompanyBranch.attribute_names.map(&:to_sym).push(:_destroy))
+  params.require(:company).permit(:cin,:c_name, :cpiCriteria,:category,:batch,:c_backlogs,:skills_set,:info,company_branches_attributes: CompanyBranch.attribute_names.map(&:to_sym).push(:_destroy))
 end
 
 private def name

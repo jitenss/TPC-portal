@@ -14,16 +14,17 @@
 ActiveRecord::Schema.define(version: 20170622095659) do
 
   create_table "companies", force: :cascade do |t|
-    t.string   "cin",         limit: 255,   null: false
-    t.string   "c_name",      limit: 255,   null: false
-    t.float    "cpiCriteria", limit: 24,    null: false
-    t.string   "category",    limit: 255,   null: false
+    t.string   "cin",         limit: 255,                   null: false
+    t.string   "c_name",      limit: 255,                   null: false
+    t.float    "cpiCriteria", limit: 24,                    null: false
+    t.string   "category",    limit: 255,                   null: false
     t.integer  "batch",       limit: 4
     t.text     "info",        limit: 65535
-    t.integer  "backlogs",    limit: 4,     null: false
+    t.integer  "c_backlogs",  limit: 4,                     null: false
     t.text     "skills_set",  limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.boolean  "visiting",                  default: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
   add_index "companies", ["cin"], name: "index_companies_on_cin", using: :btree
@@ -69,6 +70,7 @@ ActiveRecord::Schema.define(version: 20170622095659) do
     t.date     "date_of_birth",               null: false
     t.string   "contact_no_1",    limit: 255, null: false
     t.string   "contact_no_2",    limit: 255
+    t.integer  "s_backlogs",      limit: 4,   null: false
     t.string   "email",           limit: 255, null: false
     t.float    "spi_1",           limit: 24,  null: false
     t.float    "spi_2",           limit: 24,  null: false

@@ -10,6 +10,7 @@ class CreateStudentDetails < ActiveRecord::Migration
     	t.date "date_of_birth", :null=> false
     	t.string "contact_no_1",:null=> false
     	t.string "contact_no_2"
+        t.integer "s_backlogs",:null=>false
     	t.string "email", :null=> false
     	t.float "spi_1", :null=> false, :precision=> 4, :scale=> 2
     	t.float "spi_2", :null=> false, :precision=> 4, :scale=> 2

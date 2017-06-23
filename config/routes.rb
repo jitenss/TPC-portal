@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
 
   
   get 'company_drives/index'
@@ -11,6 +12,9 @@ Rails.application.routes.draw do
   get 'company_drives/delete'
 
   root "companies#index"
+=======
+  #root "companies#index"
+>>>>>>> 753ea064b53df1e7c7ab2f66dc108f58d078ce10
  match ':controller(/:action(/:id))', :via=>[:get,:post]
 
 

@@ -3,7 +3,7 @@ class CreateStudentRegisters < ActiveRecord::Migration
     create_table :student_registers do |t|
     	t.references :student_detail
     	t.references :company
-      	t.timestamps null: false
+      t.timestamps null: false
     end
 
     add_foreign_key :student_registers , :student_details,on_delete: :cascade,on_update: :cascade

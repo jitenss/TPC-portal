@@ -7,7 +7,7 @@
 	<%= link_to("Show",{:action=>'enter_no_show'})%>
 	<%= link_to("Edit",{:action=>'enter_no_edit'}) %>
 	<%= link_to("Delete",{:action=>'enter_no_delete'}) %>
-	<%= link_to("Logout",{:controller=>'LoginStudents',:action=>'logout'})%>
+	<%= link_to("Logout",{:action=>'logout'})%>
 
 	<div><%= pluralize(@students.size,'student')%> registered.</div>
 
@@ -61,5 +61,4 @@
 			</tr>
 		<%end%>
 	</table>
-
 </div>

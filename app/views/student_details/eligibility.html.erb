@@ -1,0 +1,9 @@
+<div>
+	<% if @check_eligibility==true %>
+		<%= "Eligible" %>
+		<%= @visiting_company.c_name%>
+		<%= button_to("Register",:action=>'register')%>
+	<% else%>
+		<%="Not eligible" %>
+	<%end%>
+</div>

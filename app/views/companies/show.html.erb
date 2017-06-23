@@ -4,8 +4,8 @@
   <h2>Show Company</h2>
   <table>
     <tr>
-      <th>CIN</th>
-      <td><%= @company.cin %></td>
+      <th>Cin</th>
+      <td><%= @company.cin%></td>
     </tr>
     <tr>
       <th>Name</th>
@@ -21,7 +21,7 @@
     </tr>
     <tr>
       <th>Backlogs</th>
-      <td><%= @company.backlogs %></td>
+      <td><%= @company.c_backlogs %></td>
     </tr>
     <tr>
       <th>Skills Set</th>
@@ -44,6 +44,9 @@
       <% @company.company_branches.each do|c|%>s
       <td><%= c.branch %></td>
       <% end %>
+    </tr>
+    <tr>
+      <%=link_to("Students Registered", {:action=>'s_registered',:id=>@company.id})%>
     </tr>
   </table>
 
