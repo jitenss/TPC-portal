@@ -6,7 +6,7 @@ class CreateStudentPlaceds < ActiveRecord::Migration
     	t.integer "ctc", :null=>false
     	t.string "position"
     	t.string "type", :null=>false
-		  t.timestamps null: false
+		t.timestamps null: false
     end
 
     add_foreign_key :student_placeds , :student_registers,on_delete: :cascade,on_update: :cascade

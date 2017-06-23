@@ -21,12 +21,13 @@
       <td><%= t.category %></td>
       <td><%= t.batch%></td>
       <td><%= t.cpiCriteria %></td>
-      <td><%= t.backlogs%></td>
+      <td><%= t.c_backlogs%></td>
       <td><%= t.skills_set%></td>
       <td>
         <%= link_to("Show", {:action => 'show', :id => t.id}) %>
         <%= link_to("Edit", {:action => 'edit', :id => t.id}) %>
         <%= link_to("Delete", {:action => 'delete', :id => t.id}) %>
+        
       </td>
     </tr>
     <% end %>

@@ -1,0 +1,9 @@
+<div>
+	<%if @company_visiting.count>0%>
+		<% @company_visiting.each do |x| %>
+			<%=link_to(x.c_name,{:controller=>'StudentDetails',:action=>'eligibility',:id=>x.id})%>
+		<%end%>
+	<%else%>
+		<%= "NO company visting"%>
+	<%end%>
+</div>

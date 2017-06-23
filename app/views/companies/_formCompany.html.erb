@@ -1,7 +1,6 @@
 <table>
-
   <tr>
-    <th> <%=f.label(:cin,'CIN')%></th>
+    <th><%= f.label(:cin)%></th>
     <td><%= f.text_field(:cin) %></td>
   </tr>
   <tr>
@@ -21,8 +20,13 @@
     <td><%= f.text_field(:batch) %></td>
   </tr>
   <tr>
-    <th><%= f.label(:backlogs)%></th>
-    <td><%= f.text_field(:backlogs) %></td>
+    <th><%= f.label(:visiting)%></th>
+    <td><%= f.radio_button(:visiting,true)%>Visiting</td>
+    <td><%= f.radio_button(:visiting,false)%>Not Visiting</td>
+  </tr>
+  <tr>
+    <th><%= f.label(:c_backlogs)%></th>
+    <td><%= f.text_field(:c_backlogs) %></td>
   </tr>
   <tr>
     <th><%= f.label(:skills_set)%></th>

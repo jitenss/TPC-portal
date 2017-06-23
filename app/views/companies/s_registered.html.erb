@@ -1,0 +1,8 @@
+<div>
+	<%@student_register.each do |x|%>
+		<% s=StudentDetail.find(x.student_detail_id) %>
+		<%= s.s_name%>
+		<%= s.roll_no%>
+		</br>
+	<%end%>
+</div>

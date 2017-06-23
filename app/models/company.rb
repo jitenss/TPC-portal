@@ -7,10 +7,12 @@ class Company < ActiveRecord::Base
 	has_many :company_branches
 	has_many :company_ctcs
 
+
+	validates :cin, :presence=>true
 	validates :c_name, :presence=>true
 	validates :cpiCriteria, :presence=>true,:numericality=> {:less_than_or_equal_to => 10.00}
 	validates :category, :presence=>true,:inclusion => {:in => %w(Dream Regular Core)}
-	validates :backlogs, :presence=>true,:numericality=>{:only_integer=>true}
+	validates :c_backlogs, :presence=>true,:numericality=>{:only_integer=>true}
 
 
 	scope :sorted, lambda { order("companies.c_name ASC") }
