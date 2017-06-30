@@ -40,6 +40,10 @@
       <td><%= @company.updated_at %></td>
     </tr>
     <tr>
+      <th>Visible</th>
+      <td><%= @company.visiting ? 'true' : 'false' %></td>
+    </tr>
+    <tr>
       <th>Branch</th>
       <% @company.company_branches.each do|c|%>s
       <td><%= c.branch %></td>

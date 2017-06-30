@@ -1,56 +1,71 @@
-<table>
-  <tr>
-    <th><%= f.label(:cin)%></th>
-    <td><%= f.text_field(:cin) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:c_name)%></th>
-    <td><%= f.text_field(:c_name) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:cpiCriteria)%></th>
-    <td><%= f.text_field(:cpiCriteria) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:category)%></th>
-    <td><%= f.select(:category,['Regular','Dream','Core','Super_Dream']) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:batch)%></th>
-    <td><%= f.text_field(:batch) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:visiting)%></th>
-    <td><%= f.radio_button(:visiting,true)%>Visiting</td>
-    <td><%= f.radio_button(:visiting,false)%>Not Visiting</td>
-  </tr>
-  <tr>
-    <th><%= f.label(:c_backlogs)%></th>
-    <td><%= f.text_field(:c_backlogs) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:skills_set)%></th>
-    <td><%= f.text_area(:skills_set,:size=>'30x10') %></td>
-  </tr>
-  <tr>
-    <th><%= f.label(:info)%></th>
-    <td><%= f.text_area(:info,:size=>'40x10') %></td>
-  </tr>
 
-<tbody>
+
+<%= f.label(:cin)%>
+<%= f.text_field(:cin) %>  </br>
+    <%= f.label(:c_name)%>
+    <%= f.text_field(:c_name) %>
+  </br>
+
+    <%= f.label(:cpiCriteria)%>
+    <%= f.text_field(:cpiCriteria) %>
+  </br>
+
+    <%= f.label(:category)%>
+    <%= f.select(:category,['Regular','Dream','Core','Super_Dream']) %>
+  </br>
+
+    <%= f.label(:batch)%>
+    <%= f.text_field(:batch) %>
+  </br>
+
+    <%= f.label(:visiting)%>
+    <%= f.check_box(:visiting)%>
+  </br>
+
+    <%= f.label(:start_date,'Drive Date')%>
+    <%= f.date_select(:start_date,options={:include_blank=> true})%>
+  </br>
+
+    <%= f.label(:end_date)%>
+    <%= f.date_select(:end_date,options={:include_blank=> true})%>
+  </br>
+
+    <%= f.label(:feedback)%>
+    <%= f.text_field(:feedback)%>
+  </br>
+
+    <%= f.label(:c_backlogs)%>
+    <%= f.text_field(:c_backlogs) %>
+  </br>
+
+    <%= f.label(:skills_set)%>
+    <%= f.text_area(:skills_set,:size=>'30x10') %>
+  </br>
+
+    <%= f.label(:info)%>
+    <%= f.text_area(:info,:size=>'40x10') %>
+  </br>
+
   <div id='a'>
-<tr>
+
     <%= f.fields_for :company_branches do |branches| %>
     <%= render(:partial => "company_branch_fields", :locals => {:f => branches}) %>
    <% end %>
-   <div id="link">
-  <th> <%= link_to_add_association 'add branch', f, :company_branches,'data-association-insertion-node' => "#a", 'data-association-insertion-method' => "append" %>
-</th>
+   <div class="link">
+   <%= link_to_add_association 'add branch', f, :company_branches,'data-association-insertion-node' => "#a", 'data-association-insertion-method' => "after" %>
+
 </div>
-</tr>
+
 </div>
-</tbody>
+  <div id='b'>
+      </br>
+    <%= f.fields_for :company_ctcs do |ctc| %>
 
+    <%= render(:partial => "company_ctc_fields", :locals => {:f => ctc}) %>
+   <% end %>
+   <div class="link">
+   <%= link_to_add_association 'add more positions', f, :company_ctcs,'data-association-insertion-node' => "#b", 'data-association-insertion-method' => "append" %>
 
+</div>
 
-</table>
+</div>

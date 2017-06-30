@@ -10,8 +10,12 @@ class CreateCompanies < ActiveRecord::Migration
       t.integer "c_backlogs",:null=> false
       t.text "skills_set"
       t.boolean "visiting",:default=>false
+      t.date "start_date"
+      t.date "end_date"
+      t.integer "no_placed_students"
+      t.text "feedback"
       t.timestamps null: false
     end
-    add_index("companies","cin")
+    add_index("companies","c_name")
   end
 end

@@ -1,20 +1,10 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
 
+  root "home#index"
+  patch 'companies/:id' => 'companies#update'
   
-  get 'company_drives/index'
-
-  get 'company_drives/new'
-
-  get 'company_drives/show'
-
-  get 'company_drives/delete'
-
-  root "companies#index"
-=======
-  #root "companies#index"
->>>>>>> 753ea064b53df1e7c7ab2f66dc108f58d078ce10
+  devise_for :users, controllers: { registrations: 'registrations' }
  match ':controller(/:action(/:id))', :via=>[:get,:post]
 
 

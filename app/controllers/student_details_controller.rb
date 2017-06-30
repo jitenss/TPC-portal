@@ -1,7 +1,9 @@
 class StudentDetailsController < ApplicationController
+	before_action :authenticate_user!
+
 
 	#layout('index')
-	before_action :confirm_logged_in, :except=>[:login,:attempt_login,:logout,:new]
+	#before_action :confirm_logged_in, :except=>[:login,:attempt_login,:logout,:new]
 	#before_action :if_logged_in,:only=>[:login]
 
 	def index
@@ -62,30 +64,7 @@ class StudentDetailsController < ApplicationController
 	end
 
 
-	def login
-	end
 
-	def attempt_login
-		if params[:roll_no].present? && params[:password].present?
-			found_user = StudentDetail.where(:roll_no=>params[:roll_no]).first
-			if found_user
-				authorized_user = found_user.authenticate(params[:password])
-			end
-		end
-		if authorized_user
-			session[:id] = authorized_user.id
-			flash[:notice]="logged in"
-			redirect_to(:action=>'index')
-		else
-			redirect_to(:action=>'login')
-		end
-
-	end
-
-	def logout
-		session[:id] = nil
-		redirect_to(:action=>'login')
-	end
 
 	def eligibility
 		@current_student = StudentDetail.find(session[:id])
@@ -98,7 +77,7 @@ class StudentDetailsController < ApplicationController
 		@visiting_company = Company.find(1)
 
 		check = StudentRegister.where(:student_detail_id=>@current_student.id,:company_id=>@visiting_company.id)
-		if check.count==0 
+		if check.count==0
 			r = StudentRegister.create(:student_detail_id=>@current_student.id,:company_id=>@visiting_company.id)
 			redirect_to(:action=>'index')
 		else
@@ -117,22 +96,6 @@ class StudentDetailsController < ApplicationController
 		params.require(:stud).permit(:roll_no)
 	end
 
-	def confirm_logged_in
-		unless session[:id]
-			redirect_to(:action=>'login')
-			return false
-		else
-			return true
-		end
-	end
 
-	def if_logged_in
-		if session[:id]!=nil
-			redirect_to(:action=>'index')
-			return true
-		else
-			return false
-		end
-	end
 
 end

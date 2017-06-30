@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+  before_action :authenticate_user!
   def index
     @company=Company.sorted
   end
@@ -87,7 +88,7 @@ def s_registered
 end
 
 private def company_params()
-  params.require(:company).permit(:cin,:c_name, :cpiCriteria,:category,:batch,:c_backlogs,:skills_set,:info,company_branches_attributes: CompanyBranch.attribute_names.map(&:to_sym).push(:_destroy))
+  params.require(:company).permit(:cin,:c_name, :cpiCriteria,:category,:batch,:c_backlogs,:skills_set,:info,:visiting,:start_date,:end_date,:feedback,company_branches_attributes: CompanyBranch.attribute_names.map(&:to_sym).push(:_destroy),company_ctcs_attributes: CompanyCtc.attribute_names.map(&:to_sym).push(:_destroy))
 end
 
 private def name
