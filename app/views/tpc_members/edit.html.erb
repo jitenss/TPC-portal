@@ -3,7 +3,7 @@
 
   <h2>Update Member</h2>
 
-  <%= form_for(@tpc, :url => {:action => 'update', :id => @tpc.id}) do |f| %>
+  <%= form_for(:tpc, :url => {:action => 'update', :id => @tpc.id}) do |f| %>
 
     <%= render(:partial => "formTpc", :locals => {:f => f}) %>
 

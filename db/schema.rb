@@ -11,23 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622095659) do
+ActiveRecord::Schema.define(version: 20170629151205) do
 
   create_table "companies", force: :cascade do |t|
-    t.string   "cin",         limit: 255,                   null: false
-    t.string   "c_name",      limit: 255,                   null: false
-    t.float    "cpiCriteria", limit: 24,                    null: false
-    t.string   "category",    limit: 255,                   null: false
-    t.integer  "batch",       limit: 4
-    t.text     "info",        limit: 65535
-    t.integer  "c_backlogs",  limit: 4,                     null: false
-    t.text     "skills_set",  limit: 65535
-    t.boolean  "visiting",                  default: false
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.string   "cin",                limit: 255,                   null: false
+    t.string   "c_name",             limit: 255,                   null: false
+    t.float    "cpiCriteria",        limit: 24,                    null: false
+    t.string   "category",           limit: 255,                   null: false
+    t.integer  "batch",              limit: 4
+    t.text     "info",               limit: 65535
+    t.integer  "c_backlogs",         limit: 4,                     null: false
+    t.text     "skills_set",         limit: 65535
+    t.boolean  "visiting",                         default: false
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "no_placed_students", limit: 4
+    t.text     "feedback",           limit: 65535
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
   end
 
-  add_index "companies", ["cin"], name: "index_companies_on_cin", using: :btree
+  add_index "companies", ["c_name"], name: "index_companies_on_c_name", using: :btree
 
   create_table "company_branches", force: :cascade do |t|
     t.integer  "company_id", limit: 4
@@ -47,18 +51,6 @@ ActiveRecord::Schema.define(version: 20170622095659) do
   end
 
   add_index "company_ctcs", ["company_id"], name: "index_company_ctcs_on_company_id", using: :btree
-
-  create_table "company_drives", force: :cascade do |t|
-    t.integer  "company_id",         limit: 4
-    t.date     "start_date",                       null: false
-    t.date     "end_date"
-    t.integer  "no_placed_students", limit: 4,     null: false
-    t.text     "feedback",           limit: 65535
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-  end
-
-  add_index "company_drives", ["company_id"], name: "index_company_drives_on_company_id", using: :btree
 
   create_table "student_details", force: :cascade do |t|
     t.string   "s_name",          limit: 255, null: false
@@ -123,15 +115,31 @@ ActiveRecord::Schema.define(version: 20170622095659) do
   add_index "tpc_members", ["t_roll_no"], name: "index_tpc_members_on_t_roll_no", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",   limit: 255
-    t.string   "password",   limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",                   limit: 255
+    t.string   "roll_no",                limit: 255
+    t.string   "category",               limit: 255
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "confirmation_token",     limit: 255
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "company_branches", "companies", on_update: :cascade, on_delete: :cascade
   add_foreign_key "company_ctcs", "companies", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "company_drives", "companies", on_update: :cascade, on_delete: :cascade
   add_foreign_key "student_placeds", "companies", on_update: :cascade, on_delete: :cascade
   add_foreign_key "student_placeds", "student_registers", on_update: :cascade, on_delete: :cascade
   add_foreign_key "student_registers", "companies", on_update: :cascade, on_delete: :cascade

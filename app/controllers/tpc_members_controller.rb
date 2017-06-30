@@ -1,5 +1,5 @@
 class TpcMembersController < ApplicationController
-
+before_action :authenticate_user!
   def new
     @tpc=TpcMember.new
   end
@@ -29,7 +29,7 @@ class TpcMembersController < ApplicationController
     @tpc=TpcMember.find(params[:id])
     if @tpc.update_attributes(tpc_params())
         #flash[:notice]="Company succeessfully updated"
-      redirect_to(:action=>'show',:id=>@tpc.id)
+      redirect_to(:action=>'index',:id=>@tpc.id)
     else
       render('edit')
     end

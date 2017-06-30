@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+
+
+  root "home#index"
+  patch 'companies/:id' => 'companies#update'
   
-  root "companies#index"
+  devise_for :users, controllers: { registrations: 'registrations' }
  match ':controller(/:action(/:id))', :via=>[:get,:post]
 
 
