@@ -2,7 +2,7 @@
 	<% if @check_eligibility==true %>
 		<%= "Eligible" %>
 		<%= @visiting_company.c_name%>
-		<%= button_to("Register",:action=>'register')%>
+		<%= button_to("Register",:controller=>'student_registers',:action=>'create',:id=>@visiting_company.id)%>
 	<% else%>
 		<%="Not eligible" %>
 	<%end%>

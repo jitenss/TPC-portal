@@ -1,6 +1,10 @@
   <h2>Company</h2>
 
   <%= link_to("Add new company", {:action => 'new'}) %>
+  <%= link_to("Show", {:action => 'enter_no_show'}) %>
+  <%= link_to("Edit", {:action => 'enter_no_edit'}) %>
+  <%= link_to("Delete", {:action => 'enter_no_delete'}) %><br>
+  <%= link_to("Add Students Placed", {:action => 'enter_no_placed',:controller=>'student_placeds'}) %>
 
   <%= pluralize(@company.size, 'company') %> found</div>
   <table>

@@ -1,0 +1,27 @@
+<div>
+	<%=form_for(:placed,:url=>{:action=>'create'}) do |f|%>
+		<table>
+			<tr>
+				<%c=Company.find_by_c_name(params[:c_name])%>
+				<td><%=f.hidden_field(:company_id,:value=>c.id)%></td>
+			</tr>
+			<tr>
+				<th><%=f.label(:student_detail_id)%></th>
+				<td><%=f.text_field(:student_detail_id)%></td>
+			</tr>
+			<tr>
+				<th><%=f.label(:ctc)%></th>
+				<td><%=f.text_field(:ctc)%></td>
+			</tr>
+			<tr>
+				<th><%=f.label(:position)%></th>
+				<td><%=f.text_field(:position)%></td>
+			</tr>
+			<tr>
+				<th><%=f.label(:type)%></th>
+				<td><%=f.text_field(:type)%></td>
+			</tr>
+		</table>
+		<%=submit_tag("Add")%>
+	<%end%>
+</div>

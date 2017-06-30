@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  layout('tpc')
+
   def index
     @company=Company.sorted
   end
@@ -79,11 +81,6 @@ end
 
 def visiting
   @company_visiting = Company.all.where(:visiting=>true)
-end
-
-def s_registered
-  @company = Company.find(params[:id])
-  @student_register = StudentRegister.where(@company.id)
 end
 
 private def company_params()

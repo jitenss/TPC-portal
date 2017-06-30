@@ -1,4 +1,5 @@
 <div>
+	<%=link_to("Delete",{:action=>'enter_no_delete',:company_id=>params[:company_id]})%>
 	<%@student_register.each do |x|%>
 		<% s=StudentDetail.find(x.student_detail_id) %>
 		<%= s.s_name%>

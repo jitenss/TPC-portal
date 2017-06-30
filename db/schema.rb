@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170610015612) do
+ActiveRecord::Schema.define(version: 20170622095659) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "cin",         limit: 255,                   null: false
@@ -109,6 +109,25 @@ ActiveRecord::Schema.define(version: 20170610015612) do
 
   add_index "student_registers", ["company_id"], name: "index_student_registers_on_company_id", using: :btree
   add_index "student_registers", ["student_detail_id"], name: "index_student_registers_on_student_detail_id", using: :btree
+
+  create_table "tpc_members", force: :cascade do |t|
+    t.string   "t_roll_no",       limit: 255
+    t.string   "t_name",          limit: 255
+    t.integer  "t_batch",         limit: 4
+    t.string   "team",            limit: 255
+    t.date     "date_of_joining"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "tpc_members", ["t_roll_no"], name: "index_tpc_members_on_t_roll_no", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username",   limit: 255
+    t.string   "password",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   add_foreign_key "company_branches", "companies", on_update: :cascade, on_delete: :cascade
   add_foreign_key "company_ctcs", "companies", on_update: :cascade, on_delete: :cascade
