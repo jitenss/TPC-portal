@@ -7,12 +7,7 @@
     <%= f.text_field :name, autofocus: true %>
   </div>
   <div class="field">
-    <%= f.label :roll_no %><br />
-    <%= f.text_field :roll_no, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :category %><br />
-  <%= f.select(:category,['Tpc_member','Student','Admin'], autofocus: true ) %>
+  <%= f.hidden_field(:category,:value=>'Student') %>
   </div>
 
   <div class="field">

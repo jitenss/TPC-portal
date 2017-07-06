@@ -7,10 +7,12 @@ class StudentDetailsController < ApplicationController
 	#before_action :if_logged_in,:only=>[:login]
 
 	def index
-		@students = StudentDetail.all
+			@students = StudentDetail.all
+			authorize! :read,@students
 	end
 
 	def show
+		authorize! :read,@students
 		@student = StudentDetail.where(rollNo()).first
 	end
 
@@ -30,6 +32,7 @@ class StudentDetailsController < ApplicationController
 	end
 
 	def edit
+		authorize! :update,@students
 		@student = StudentDetail.where(rollNo()).first
 	end
 
@@ -44,6 +47,7 @@ class StudentDetailsController < ApplicationController
 	end
 
 	def delete
+		authorize! :destroy,@students
 		@student = StudentDetail.where(rollNo()).first
 	end
 
@@ -54,13 +58,17 @@ class StudentDetailsController < ApplicationController
 	end
 
 	def enter_no_show
+		authorize! :read,@students
 		#@stud=StudentDetail.new
 	end
 
 	def enter_no_edit
+		authorize! :read,@students
+
 	end
 
 	def enter_no_delete
+		authorize! :read,@students
 	end
 
 
@@ -89,7 +97,7 @@ class StudentDetailsController < ApplicationController
 #----------------------------------------------------------------------------
 	private
 	def s_params
-		params.require(:student_form).permit(:id,:s_name,:batch,:roll_no,:branch,:gender,:date_of_birth,:contact_no_1,:contact_no_2,:email,:s_backlogs,:spi_1,:spi_2,:spi_3,:spi_4,:spi_5,:spi_6,:spi_7,:cpi_6,:cpi_7,:percent_10,:percent_12,:password)
+		params.require(:student_form).permit(:id,:s_name,:batch,:roll_no,:branch,:gender,:date_of_birth,:contact_no_1,:contact_no_2,:email,:s_backlogs,:spi_1,:spi_2,:spi_3,:spi_4,:spi_5,:spi_6,:spi_7,:cpi_6,:cpi_7,:percent_10,:percent_12)
 	end
 
 	def rollNo

@@ -9,43 +9,57 @@ class CompaniesController < ApplicationController
   end
 
   def new
+
     @company=Company.new
     @company_branches=@company.company_branches.new
+      authorize! :create,@company
   end
 
   def edit
     @company=Company.find(params[:id])
+    authorize! :update,@company
+
   end
 
   def delete
     @company=Company.find(params[:id])
+    authorize! :destroy,@company
+
   end
 
   def show_filter
     @company = Company.where(name()).first
+    authorize! :read,@company
+
     render("show")
   end
 
   def edit_filter
     @company = Company.where(name()).first
+    authorize! :update,@company
     render("edit")
   end
 
   def delete_filter
     @company = Company.where(name()).first
+    authorize! :delete,@company
     render("delete")
   end
 
   def enter_no_show
 		@company=Company.new
+    authorize! :read,@company
 	end
 
 	def enter_no_edit
     @company=Company.new
+    authorize! :update,@company
 	end
 
 	def enter_no_delete
     @company=Company.new
+    authorize! :destroy,@company
+
 	end
 
 

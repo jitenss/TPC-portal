@@ -2,19 +2,31 @@
 	<%= errors(@student)%>
 		<%= form_for(:student_form, :url=>{:action=>'create'}) do |f| %>
 			<table>
-				<%= render(:partial=>'formStudent',:locals=>{:f=>f}) %>
+				<%if (current_user.category == "Student")%>
 				<tr>
-					<th><%=f.label(:password)%></th>
-					<td><%=f.password_field(:password)%></td>
+					<th><%= f.label(:s_name,"Name")%></th>
+					<td><%= current_user.name%></td>
 				</tr>
+				<tr>
+					<th><%= f.label(:email,"E-Mail")%></th>
+					<td><%= current_user.email%></td>
+				</tr>
+				<%else%>
+				<tr>
+					<th><%= f.label(:s_name,"Name")%></th>
+					<td><%= f.text_field(:email)%></td>
+				</tr>
+				<tr>
+					<th><%= f.label(:email,"E-Mail")%></th>
+					<td><%= f.text_field(:email)%></td>
+				</tr>
+				<% end%>
 
-				<tr>
-					<th><%=f.label(:password_confirmation)%></th>
-					<td><%=f.password_field(:password_confirmation)%></td>
-				</tr>
+				<%= render(:partial=>'formStudent',:locals=>{:f=>f}) %>
+
 			</table>
 
 			<%= submit_tag("Register") %>
 		<%end%>
-	
+
 </div>

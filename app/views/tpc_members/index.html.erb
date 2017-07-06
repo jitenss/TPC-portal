@@ -1,7 +1,8 @@
 <h2>TPC-Members</h2>
+<% if(can? :create,@tpc) %>
 
 <%= link_to("Add new member", {:action => 'new'}) %>
-
+<% end%>
 <%= pluralize(@tpc.size, 'Member') %> found</div>
 <table>
   <tr>
@@ -19,8 +20,12 @@
     <td><%= t.t_batch %></td>
     <td><%= t.date_of_joining %></td>
     <td>
+      <% if(can? :manage,t)%>
+
       <%= link_to("Edit", {:action => 'edit', :id => t.id}) %>
       <%= link_to("Delete", {:action => 'delete', :id => t.id}) %>
+      <% end%>
+
     </td>
   </tr>
   <% end %>

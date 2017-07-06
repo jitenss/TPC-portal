@@ -4,7 +4,6 @@ class CreateStudentDetails < ActiveRecord::Migration
     	t.string "s_name" , :null=> false
     	t.integer "batch", :null=> false
     	t.string "roll_no", :null=> false
-        t.string "password_digest"
     	t.string "branch", :null=> false
     	t.string "gender", :null=> false
     	t.date "date_of_birth", :null=> false
@@ -25,5 +24,9 @@ class CreateStudentDetails < ActiveRecord::Migration
     	t.float "percent_12", :null=> false, :precision=> 4, :scale=> 2
       	t.timestamps :null=> false
     end
+    add_index("student_details","roll_no")
+    add_index("student_details","email")
+
+
   end
 end

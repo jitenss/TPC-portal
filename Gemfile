@@ -45,4 +45,6 @@ group :development do
   gem 'spring'
   gem 'cocoon'
   gem 'devise'
+  gem 'rails_admin'
+  gem 'cancan'
 end

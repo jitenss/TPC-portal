@@ -3,7 +3,6 @@ class Company < ActiveRecord::Base
 	max_cgpa=10.00
 	has_many :student_registers
 	has_many :student_placeds
-	has_many :company_drives
 	has_many :company_branches
 	has_many :company_ctcs
 

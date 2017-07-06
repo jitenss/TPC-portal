@@ -1,8 +1,3 @@
-
-	<tr>
-		<th><%= f.label(:s_name,"Name")%></th>
-		<td><%= f.text_field(:s_name)%></td>
-	</tr>
 	<tr>
 		<th><%= f.label(:batch)%></th>
 		<td><%= f.text_field(:batch)%></td>
@@ -28,8 +23,8 @@
 	 <tr>
 		<th><%= f.label(:date_of_birth,"Date of Birth")%></th>
 		<td><%= f.date_select(:date_of_birth,:start_year=>1993,:end_year=>2000,:order=>[:day,:month,:year])%></td>
-		</tr> 
-				
+		</tr>
+
 	<tr>
 		<th><%= f.label(:contact_no_1,"Contact Number")%></th>
 		<td><%= f.text_field(:contact_no_1)%></td>
@@ -38,11 +33,6 @@
 				<tr>
 					<th><%= f.label(:contact_no_2,"Contact Number")%></th>
 					<td><%= f.text_field(:contact_no_2)%></td>
-				</tr>
-
-				<tr>
-					<th><%= f.label(:email,"E-Mail")%></th>
-					<td><%= f.text_field(:email)%></td>
 				</tr>
 
 				<tr>
@@ -84,12 +74,12 @@
 					<th><%= f.label(:spi_7,"SPI(7th sem)")%></th>
 					<td><%= f.text_field(:spi_7)%></td>
 				</tr>
-				
+
 				<tr>
 					<th><%= f.label(:cpi_6,"CPI(Till 6th sem)")%></th>
 					<td><%= f.text_field(:cpi_6)%></td>
 				</tr>
-				
+
 				<tr>
 					<th><%= f.label(:cpi_7,"CPI(Till 7th sem)")%></th>
 					<td><%= f.text_field(:cpi_7)%></td>
@@ -104,4 +94,3 @@
 					<th><%= f.label(:percent_12,"12th Percentage")%></th>
 					<td><%= f.text_field(:percent_12)%></td>
 				</tr>
-					

@@ -2,6 +2,7 @@ class TpcMembersController < ApplicationController
 before_action :authenticate_user!
   def new
     @tpc=TpcMember.new
+    authorize! :create,@tpc
   end
 
   def index
@@ -23,6 +24,8 @@ before_action :authenticate_user!
 
   def edit
     @tpc=TpcMember.find(params[:id])
+    authorize! :update,@tpc
+
   end
 
   def update
@@ -37,6 +40,8 @@ before_action :authenticate_user!
 
   def delete
     @tpc=TpcMember.find(params[:id])
+    authorize! :destroy,@tpc
+
   end
 
   def destroy

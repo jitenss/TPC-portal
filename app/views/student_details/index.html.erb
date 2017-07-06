@@ -1,14 +1,12 @@
 <div>
 
-
 	<h3>Students</h3>
-
+	<% if(can? :manage,@students)%>
 	<%= link_to("Add new Student",{:action=>'new'}) %>
 	<%= link_to("Show",{:action=>'enter_no_show'})%>
 	<%= link_to("Edit",{:action=>'enter_no_edit'}) %>
 	<%= link_to("Delete",{:action=>'enter_no_delete'}) %>
-	<%= link_to("Logout",{:action=>'logout'})%>
-
+	<% end%>
 	<div><%= pluralize(@students.size,'student')%> registered.</div>
 
 	<table>
