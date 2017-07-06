@@ -1,0 +1,22 @@
+<div>
+	<table>
+		<tr>
+			<td>Sr. No.</td>
+			<td>Name</td>
+			<td>Roll No.</td>
+			<td>Company</td>
+			<td>CTC</td>
+		</tr>
+		<tr>
+			<%@student.each do |x|%>
+				<% s=StudentDetail.find(x.student_detail_id)%>
+				<% c=Company.find(x.company_id)%>
+				<td>x</td>
+				<td>s.s_name</td>
+				<td>s.roll_no</td>
+				<td>c.c_name</td>
+				<td>x.ctc</td>
+			<%end%>
+		</tr>
+	</table>
+</div>

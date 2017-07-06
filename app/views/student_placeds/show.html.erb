@@ -1,0 +1,27 @@
+<div>
+	<% if @student.count>0 %>
+		<table>
+			<tr>
+				<th>Sr. No.</th>
+				<th>Name</th>
+				<th>Roll No</th>
+				<th>Package</th>
+				<th>Position</th>
+				<th>Type</th>
+			</tr>
+			<tr>
+				<%@student.each do |x|%>
+					<%=x%>
+					<% s= StudentDetail.find(x.student_detail_id)%>
+					<%=s.s_name%>
+					<%=s.roll_no%>
+					<%=x.ctc%>
+					<%=x.position%>
+					<%=x.type%>
+				<%end%>
+			</tr>
+		</table>
+	<%else%>
+		<%="no placed"%>
+	<%end%>
+</div>

@@ -1,0 +1,79 @@
+<!DOCTYPE html5>
+<html>
+
+<head>
+	<title>TPC Portal</title>
+	<link rel="stylesheet" type="text/css" href="Desktop/style.css">
+	<style type="text/css">
+		.page{
+			height: 100%;
+		}
+		.navbody{
+			height: 100%;
+		}
+		.strip{
+			width: 100%; 
+			height: 50px;
+		    border-style: solid;
+		    border-color: #218FE5;
+		    background-color:#218FE5;
+		    margin-left:0px;
+		    margin-right:right;
+		    margin-top: top;
+		    box-shadow: 6px 6px 5px #888888;
+		}
+		.heading{
+			text-align: center;
+		    font-family: arial;
+		    color: white;
+		    font-size: 23px;
+		}
+		.nav{
+			padding: 15px;
+			color: black;
+			font-family:sans-serif;
+			font-size: 17px;
+			margin-left: 5px;
+			text-decoration: none;
+		}
+		.sidenav{
+			width:20%;
+			height:100%;
+			background-color:white;
+			margin-left:-13px;
+			box-shadow: 4px 8px 5px #888888;
+			opacity:.8;
+			text-decoration: none;
+		}
+		.body{
+
+		}
+		
+	</style>
+</head>
+
+<body>
+	<div class="page">
+		<div class="strip">
+			<h1 class="heading">TPC Portal</h1>
+		</div>
+		<div class="nav_body">
+			<div class="sidenav">
+				<div class="nav">
+					<%=link_to("Register",{:action=>'visiting',:controller=>'companies'})%>
+				</div>
+				<div class="nav">
+					<%=link_to("Visited Companies",{:action=>'index',:controller=>'companies'})%>
+				</div>
+				<div class="nav">
+					<%=link_to("Students Placed",{:action=>'show_all',:controller=>'student_placeds'})%>
+				</div>
+			</div>
+			<div class="body">
+				<%=yield%>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

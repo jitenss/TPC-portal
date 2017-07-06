@@ -12,6 +12,7 @@ class Company < ActiveRecord::Base
 	validates :cpiCriteria, :presence=>true,:numericality=> {:less_than_or_equal_to => 10.00}
 	validates :category, :presence=>true,:inclusion => {:in => %w(Dream Regular Core)}
 	validates :c_backlogs, :presence=>true,:numericality=>{:only_integer=>true}
+	#validates :visiting,:inclusion=>{:in=>(true false)}
 
 
 	scope :sorted, lambda { order("companies.c_name ASC") }

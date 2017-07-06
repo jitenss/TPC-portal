@@ -3,6 +3,13 @@
   <% if(can? :create,@company) %>
   <%= link_to("Add new company", {:action => 'new'}) %>
   <% end%>
+  <%= link_to("Show", {:action => 'enter_no_show'}) %>
+  <% if(can? :manage,t)%>
+  <%= link_to("Edit", {:action => 'enter_no_edit'}) %>
+  <%= link_to("Delete", {:action => 'enter_no_delete'}) %><br>
+  <%= link_to("Add Students Placed", {:action => 'enter_no_placed',:controller=>'student_placeds'}) %>
+  <% end %>
+
   <%= pluralize(@company.size, 'company') %> found</div>
   <table>
     <tr>

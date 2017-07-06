@@ -32,6 +32,10 @@
       <td><%= @company.info %></td>
     </tr>
     <tr>
+      <th>Visiting</th>
+      <td><%= @company.visiting %></td>
+    </tr>
+    <tr>
       <th>Created</th>
       <td><%= @company.created_at %></td>
     </tr>
@@ -50,7 +54,10 @@
       <% end %>
     </tr>
     <tr>
-      <%=link_to("Students Registered", {:action=>'s_registered',:id=>@company.id})%>
+      <%=link_to("Students Registered", {:controller=>'student_registers',:action=>'show',:company_id=>@company.id})%>
+    </tr>
+    <tr>
+      <%=link_to("Students Placed", {:controller=>'student_placeds',:action=>'show',:company_id=>@company.id})%>
     </tr>
   </table>
 

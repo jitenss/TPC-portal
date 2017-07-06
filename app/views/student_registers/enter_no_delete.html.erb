@@ -1,0 +1,8 @@
+<div>
+	<%=form_tag(:action=>'destroy',:method=>'get') do%>
+		<p>Enter the roll no</p>
+		<p><%=text_field_tag(:roll_no)%></p>
+		<p><%=hidden_field_tag(:company_id,:value=>params[:company_id])%></p>
+		<%=submit_tag("Delete")%>
+	<%end%>
+</div>
