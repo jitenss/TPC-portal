@@ -1,9 +1,9 @@
 <div>
-	<%= form_for(:student_form,:url=>{:action=>'update',:id=>@student.id}) do |f|%>
+	<%= form_for(:student,:url=>{:action=>'update',:id=>@student.id}) do |f|%>
 		<table>
 			<tr>
 				<th><%= f.label(:s_name,"Name")%></th>
-				<td><%= f.text_field(:email)%></td>
+				<td><%= f.text_field(:s_name)%></td>
 			</tr>
 			<tr>
 				<th><%= f.label(:email,"E-Mail")%></th>

@@ -5,6 +5,8 @@ class StudentDetail < ActiveRecord::Base
 
 	EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
+	mount_uploader :resume, AttachmentUploader
+
 	validates :s_name, :presence=>true
 	validates :batch, :presence=>true, :numericality=>{:only_integer=>true}
 	validates :roll_no, :presence=>true, :uniqueness=>true

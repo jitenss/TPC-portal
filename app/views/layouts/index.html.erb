@@ -12,7 +12,7 @@
 			height: 100%;
 		}
 		.strip{
-			width: 100%; 
+			width: 100%;
 			height: 50px;
 		    border-style: solid;
 		    border-color: #218FE5;
@@ -48,11 +48,17 @@
 		.body{
 
 		}
-		
+
 	</style>
 </head>
 
 <body>
+	<%= flash[:alert]%>
+
+	<% if user_signed_in? %>
+	<p>hello <%= current_user.name%> - <%= link_to "sign_out",destroy_user_session_path, :method=> 'get'%></p>
+	<% end%>
+
 	<div class="page">
 		<div class="strip">
 			<h1 class="heading">TPC Portal</h1>

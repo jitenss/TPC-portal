@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root "home#index"
   patch 'companies/:id' => 'companies#update'
-  
+
   devise_for :users, controllers: { registrations: 'registrations' }
- match ':controller(/:action(/:id))', :via=>[:get,:post]
+ match ':controller(/:action(/:id))', :via=>[:get,:post,:patch]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

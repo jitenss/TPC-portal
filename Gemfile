@@ -47,4 +47,6 @@ group :development do
   gem 'devise'
   gem 'rails_admin'
   gem 'cancan'
+  gem 'carrierwave'
+  gem 'bootstrap-sass'
 end

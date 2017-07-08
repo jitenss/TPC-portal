@@ -74,11 +74,11 @@ ActiveRecord::Schema.define(version: 20170629151205) do
     t.float    "cpi_7",         limit: 24
     t.float    "percent_10",    limit: 24,  null: false
     t.float    "percent_12",    limit: 24,  null: false
+    t.string   "resume",        limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
 
-  add_index "student_details", ["email"], name: "index_student_details_on_email", using: :btree
   add_index "student_details", ["roll_no"], name: "index_student_details_on_roll_no", using: :btree
 
   create_table "student_placeds", force: :cascade do |t|
@@ -118,7 +118,6 @@ ActiveRecord::Schema.define(version: 20170629151205) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255
-    t.string   "roll_no",                limit: 255
     t.string   "category",               limit: 255
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false

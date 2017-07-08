@@ -1,7 +1,7 @@
 class StudentDetailsController < ApplicationController
 	before_action :authenticate_user!
 
-	layout('index')
+	#layout('index')
 	#before_action :confirm_logged_in, :except=>[:login,:attempt_login,:logout,:new]
 	#before_action :if_logged_in,:only=>[:login]
 
@@ -24,7 +24,7 @@ class StudentDetailsController < ApplicationController
 
 		if @student.save
 			flash[:notice] ="created"
-			redirect_to(:action=>'login')
+			redirect_to(:action=>'index')
 		else
 			render('new')
 		end
@@ -80,7 +80,7 @@ class StudentDetailsController < ApplicationController
 	private
 	def s_params
 
-		params.require(:student_form).permit(:id,:s_name,:batch,:roll_no,:branch,:gender,:date_of_birth,:contact_no_1,:contact_no_2,:email,:s_backlogs,:spi_1,:spi_2,:spi_3,:spi_4,:spi_5,:spi_6,:spi_7,:cpi_6,:cpi_7,:percent_10,:percent_12)
+		params.require(:student).permit(:s_name,:batch,:roll_no,:branch,:gender,:date_of_birth,:contact_no_1,:contact_no_2,:email,:s_backlogs,:spi_1,:spi_2,:spi_3,:spi_4,:spi_5,:spi_6,:spi_7,:cpi_6,:cpi_7,:percent_10,:percent_12,:resume)
 
 	end
 
